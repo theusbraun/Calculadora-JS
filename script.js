@@ -15,9 +15,10 @@
 
             function acao (regra){
                 // VERIFICA SE O USUARIO ESTA INFORMANDO QUE O PRIMEIRO NUMERO É NEGATIVO
-                if (regra == '-' && num1 == null && regN == null ) {
+                if (regra == '-' && num1 == null && calculo == '') {
                         regN = '-'
                         document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + regN
+                        calculo = ''    
                 }
                 // SE NAO FOR A PRIMEIRA OPÇÃO, ENTÃO ESTÁ PASSANDO UM CALCULO MATEMATICO. "+,-,*,/..."
                 else {
@@ -25,23 +26,25 @@
                     reg = regra
                     document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + reg     
                 }
-            
+
             }
 
             //Coleta a regra matematica utilizada para o calculo de acordo com o parametro regra
             function calcular (){ 
+
                 // VERIFICA SE O PRIMEIRO NUMERO É NULO, SE NÃO, ENTÃO PASSA O VALOR CAPTURADO PELA FUNÇÃO NUMERO
                 if (num1 != null) {
                     num2 = parseFloat(calculo)
                     igual()
                     }
+
                 // VERIFICA SE O PRIMEIRO NUMERO É NULO, SE SIM, ENTÃO PASSA O VALOR CAPTURADO PELA FUNÇÃO NUMERO
-                if (num1 == null){
+                if (num1 == null && calculo != ''){
                     // SALVA O NUMERO COMO NEGATIVO CASO TENHA SIDO REALIZADO A FUNÇÃO AÇÃO PASSANDO COMO PARAMETRO(regra) COM A VARIAVEL NUM1 TENDO VALOR NULO
-                    if (regN != null) {
-                        num1 = -calculo 
+                    if (regN == '-') {
+                        num1 = parseFloat(-calculo) 
                     }
-                    // SALVA O NUMERO A SER CALCULADO
+
                     else {
                         num1 = parseFloat(calculo) 
                     }
@@ -67,14 +70,14 @@
                             
                         }
 
-                        if (num1 != null && calculo != '') {                        
+                        if (num1 != null) {                        
                             calculo = num1 ** 0.5
                             document.getElementById("tela").innerHTML = calculo
                             num1 =  parseFloat(calculo)
                             calculo = ''
                         }
                     }
-                    
+                    // REALIZA O CALCULO DAS DEMAIS REGRAS
                     if(num1 != null && num2 != null && reg != null){
 
                         if (reg == '+') {
@@ -94,10 +97,17 @@
                         }
                         document.getElementById("tela").innerHTML = calculo
                         reg = null
-                        num1 =  parseFloat(calculo)
+                        num1 = null
                         num2 = null
-                        calculo = ''
-                    }   
+
+                        if (parseFloat(calculo) < 0) {
+                            regN = '-'
+                        }
+
+                        else {
+                            regN = null
+                        }   
+                    }    
 
             }
             //Remove o ultimo caracter
