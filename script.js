@@ -117,8 +117,11 @@
                 backspace = backspace.slice(0,-1)
                 document.getElementById("tela").innerHTML = backspace
 
+                // Verifica se o caracter a ser apagado é a regra de calculo
                 if (num1 != null && reg != null && num2 == null) {
                     regra = null
+                    calculo = num1
+                    num1 = null
                 }
 
                 if (num1 != null && reg == null){
