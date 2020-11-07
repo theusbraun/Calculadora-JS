@@ -23,8 +23,15 @@
                 // SE NAO FOR A PRIMEIRA OPÇÃO, ENTÃO ESTÁ PASSANDO UM CALCULO MATEMATICO. "+,-,*,/..."
                 else {
                     calcular()
-                    reg = regra
-                    document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + reg     
+                    // Verifica se o usuario está trocando a regra utilizada
+                    if ( reg != regra){
+                        reg = regra
+                        document.getElementById("tela").innerHTML = num1 + reg  
+                    }
+                    else {
+                        reg = regra
+                        document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + reg  
+                    }   
                 }
 
             }
@@ -33,7 +40,7 @@
             function calcular (){ 
 
                 // VERIFICA SE O PRIMEIRO NUMERO É NULO, SE NÃO, ENTÃO PASSA O VALOR CAPTURADO PELA FUNÇÃO NUMERO
-                if (num1 != null) {
+                if (num1 != null && calculo != '') {
                     num2 = parseFloat(calculo)
                     igual()
                     }
