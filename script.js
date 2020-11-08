@@ -27,15 +27,11 @@
                 // SE NAO FOR A PRIMEIRA OPÇÃO, ENTÃO ESTÁ PASSANDO UM CALCULO MATEMATICO. "+,-,*,/..."
                 else {
                     calcular()
+                    reg = regra
                     // Verifica se o usuario está trocando a regra utilizada
-                    if ( reg != null){
-                        reg = regra
+                    if (reg != null){
                         document.getElementById("tela").innerHTML = num1 + reg  
                     }
-                    else {
-                        reg = regra
-                        document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + reg  
-                    }   
                 }
 
             }
@@ -48,18 +44,20 @@
                     num2 = parseFloat(calculo)
                     igual()
                     }
-
-                // VERIFICA SE O PRIMEIRO NUMERO É NULO, SE SIM, ENTÃO PASSA O VALOR CAPTURADO PELA FUNÇÃO NUMERO
-                if (num1 == null && calculo != ''){
+                    
                     // SALVA O NUMERO COMO NEGATIVO CASO TENHA SIDO REALIZADO A FUNÇÃO AÇÃO PASSANDO COMO PARAMETRO(regra) COM A VARIAVEL NUM1 TENDO VALOR NULO
                     if (regN == '-') {
                         num1 = parseFloat(-calculo) 
                     }
 
                     else {
-                        num1 = parseFloat(calculo) 
-                    }
-
+                        if (calculo == '') {
+                            num1 = 0
+                        }
+                        else {
+                            num1 = parseFloat(calculo) 
+                        }
+                    
 
                     // ZERA O VALOR DA VARIAVEL PARA ASSIM CAPTURAR O SEGUNDO NUMERO
                     calculo = ''             
@@ -122,7 +120,7 @@
                         }   
                     }    
                     
-                    if (isNaN(calculo) || isNaN(num1)) {
+                    if (isNaN(calculo) || isNaN(num1) || num1 == null || calculo == null) {
                         document.getElementById("tela").innerHTML = 'Escreva um calculo correto'
                         num1 = null
                         calculo = ''
