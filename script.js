@@ -24,7 +24,7 @@
                 else {
                     calcular()
                     // Verifica se o usuario está trocando a regra utilizada
-                    if ( reg != regra){
+                    if ( reg != null){
                         reg = regra
                         document.getElementById("tela").innerHTML = num1 + reg  
                     }
