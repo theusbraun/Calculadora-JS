@@ -14,6 +14,10 @@
             }
 
             function acao (regra){
+                if(document.getElementById("tela").innerHTML == 'Escreva um calculo correto'){
+                    document.getElementById("tela").innerHTML = ''
+                }
+
                 // VERIFICA SE O USUARIO ESTA INFORMANDO QUE O PRIMEIRO NUMERO É NEGATIVO
                 if (regra == '-' && num1 == null && calculo == '') {
                         regN = '-'
@@ -55,6 +59,8 @@
                     else {
                         num1 = parseFloat(calculo) 
                     }
+
+
                     // ZERA O VALOR DA VARIAVEL PARA ASSIM CAPTURAR O SEGUNDO NUMERO
                     calculo = ''             
                     }
