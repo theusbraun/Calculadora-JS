@@ -6,7 +6,7 @@
 
             //Coleta os numeros e aloca na memoria
             function numero (codigo) {
-                if(document.getElementById("tela").innerHTML == 'Escolha primeiro um numero'){
+                if(document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo correto'){
                     document.getElementById("tela").innerHTML = ''
                 }
                 document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + codigo
@@ -115,6 +115,14 @@
                             regN = null
                         }   
                     }    
+                    
+                    if (isNaN(calculo) || isNaN(num1)) {
+                        document.getElementById("tela").innerHTML = 'Escreva um calculo correto'
+                        num1 = null
+                        calculo = ''
+                        reg = null
+                        regN = null
+                    }
 
             }
             //Remove o ultimo caracter
