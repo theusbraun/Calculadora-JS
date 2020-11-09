@@ -145,37 +145,32 @@ function igual(resultado) {
     }
 
 }
+
 //Remove o ultimo caracter
 function back() {
 
-    if (docuent.mgetElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo valido') {
+    if (document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo correto') {
 
     }
 
     else {
         let backspace = document.getElementById("tela").innerHTML.slice(0, -1)
-
         document.getElementById("tela").innerHTML = backspace
-
         // Verifica se o caracter a ser apagado é a regra de calculo
         if (num1 != null && reg != null && calculo == '') {
             reg = null
             calculo = backspace
             num1 = null
         }
-
         if (num1 != null && reg != null && calculo != '') {
             calculo = calculo.slice(0, -1)
         }
-
         if (num1 == null) {
             calculo = backspace
         }
-
         if (virgula == true && Number.isInteger(parseFloat(calculo)) == true) {
             calculo = calculo * 1
             virgula = false
-
             if (num1 == null) {
                 document.getElementById("tela").innerHTML = calculo
             }
@@ -184,10 +179,9 @@ function back() {
                 document.getElementById("tela").innerHTML = num1 + reg + calculo
             }
         }
-
     }
-
 }
+
 //LIMPA TODOS OS DADOS
 function limpar() {
     document.getElementById("tela").innerHTML = ''
