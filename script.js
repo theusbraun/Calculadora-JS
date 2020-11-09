@@ -7,7 +7,7 @@ var virgula = false
 
 //Coleta os numeros e aloca na memoria
 function numero(codigo) {
-    if (document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo correto') {
+    if (document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo valido') {
         document.getElementById("tela").innerHTML = ''
     }
 
@@ -142,8 +142,8 @@ function igual(resultado) {
         }
     }
 
-    if (isNaN(calculo) || isNaN(num1) || num1 == null && calculo == null) {
-        document.getElementById("tela").innerHTML = 'Escreva um calculo correto'
+    if (isNaN(calculo) || isNaN(num1) || num1 == null && calculo == null || isFinite(num1) == false|| isFinite(calculo) == false) {
+        document.getElementById("tela").innerHTML = 'Escreva um calculo valido'
         num1 = null
         calculo = ''
         reg = null
@@ -154,7 +154,7 @@ function igual(resultado) {
 //Remove o ultimo caracter
 function back() {
 
-    if (document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo correto') {
+    if (docuent.mgetElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo valido') {
 
     }
 
