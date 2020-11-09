@@ -33,8 +33,13 @@ function acao(regra) {
             document.getElementById("tela").innerHTML = num1 + reg
         }
         else {
-            reg = regra
-            document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + reg
+             if (reg = regra) {
+
+             }
+             else {
+                reg = regra
+                document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + reg
+             }
         }
     }
 
