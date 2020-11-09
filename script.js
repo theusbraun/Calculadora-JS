@@ -149,7 +149,7 @@ function igual(resultado) {
 //Remove o ultimo caracter
 function back() {
 
-    if (document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo correto') {
+    if (document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo valido') {
 
     }
 
