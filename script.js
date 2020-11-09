@@ -68,7 +68,7 @@ function calcular() {
 
     // SALVA O NUMERO COMO NEGATIVO CASO TENHA SIDO REALIZADO A FUNÇÃO AÇÃO PASSANDO COMO PARAMETRO(regra) COM A VARIAVEL NUM1 TENDO VALOR NULO
 
-    if (calculo == '' && num1 == null) {
+    if (calculo == '.' || calculo == '' && num1 == null) {
         num1 = 0
     }
     if (num1 == null) {
@@ -168,7 +168,7 @@ function back() {
         if (num1 == null) {
             calculo = backspace
         }
-        if (virgula == true && Number.isInteger(parseFloat(calculo)) == true) {
+        if (virgula == true && Number.isInteger(parseFloat(calculo)) == true || calculo == '') {
             calculo = calculo * 1
             virgula = false
             if (num1 == null) {
