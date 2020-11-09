@@ -84,7 +84,6 @@ function igual(resultado) {
     // CASO NÃO SEJA REALIZADO MAIS NENHUMA OPERAÇÃO PODE SER DADO O VALOR IGUAL PARA GERAR O RESULTADO, ALOCA O VALOR DO SEGUNDO NUMERO.
     if (resultado == '=' && num1 != null) {
         num2 = parseFloat(calculo)
-        virgula = false
     }
     // REGRA DA RAIZ QUADRADA É SEPARADA POIS SÓ TEM UM NUMERO
     if (resultado == '√') {
@@ -135,8 +134,8 @@ function igual(resultado) {
         else {
             regN = null
         }
-    }
-
+    }    
+        virgula = false
     if (isNaN(calculo) || isNaN(num1) || num1 == null && calculo == null || isFinite(num1) == false|| isFinite(calculo) == false) {
         document.getElementById("tela").innerHTML = 'Escreva um calculo valido'
         num1 = null
