@@ -82,6 +82,7 @@ function calcular() {
 
         // ZERA O VALOR DA VARIAVEL PARA ASSIM CAPTURAR O SEGUNDO NUMERO
         calculo = ''
+        virgula = false
     }
 }
 
