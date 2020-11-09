@@ -34,7 +34,7 @@ function acao(regra) {
     if (regra == '-' && num1 == null && calculo == '') {
         regN = '-'
         document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + regN
-        calculo = ''
+        calculo = '-'
     }
     // SE NAO FOR A PRIMEIRA OPÇÃO, ENTÃO ESTÁ PASSANDO UM CALCULO MATEMATICO. "+,-,*,/..."
     else {
@@ -67,23 +67,17 @@ function calcular() {
     }
 
     // SALVA O NUMERO COMO NEGATIVO CASO TENHA SIDO REALIZADO A FUNÇÃO AÇÃO PASSANDO COMO PARAMETRO(regra) COM A VARIAVEL NUM1 TENDO VALOR NULO
-    if (regN == '-') {
-        num1 = parseFloat(-calculo)
+
+    if (calculo == '' && num1 == null) {
+        num1 = 0
     }
-
-    else {
-        if (calculo == '' && num1 == null) {
-            num1 = 0
-        }
-        if (num1 == null) {
-            num1 = parseFloat(calculo)
-        }
-
-
+    if (num1 == null) {
+        num1 = parseFloat(calculo)
+    }
         // ZERA O VALOR DA VARIAVEL PARA ASSIM CAPTURAR O SEGUNDO NUMERO
         calculo = ''
         virgula = false
-    }
+    
 }
 
 function igual(resultado) {
