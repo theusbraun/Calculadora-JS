@@ -3,14 +3,26 @@ var regN = null
 var num1 = null
 var num2 = null
 var reg = null
+var virgula = false
 
 //Coleta os numeros e aloca na memoria
 function numero(codigo) {
     if (document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo correto') {
         document.getElementById("tela").innerHTML = ''
     }
-    document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + codigo
-    calculo = calculo + codigo
+
+    if (virgula == false && codigo == '.') {
+        document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + codigo
+        calculo = calculo + codigo
+        virgula = true
+    }
+
+    else {
+        if (codigo != '.' || virgula == true && codigo != '.'){
+            document.getElementById("tela").innerHTML = document.getElementById("tela").innerHTML + codigo
+            calculo = calculo + codigo
+        }
+    }
 }
 
 function acao(regra) {
