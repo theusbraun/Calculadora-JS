@@ -159,20 +159,36 @@ function back() {
     }
 
     else {
-        let backspace = document.getElementById("tela").innerHTML
+        let backspace = document.getElementById("tela").innerHTML.slice(0, -1)
 
-        backspace = backspace.slice(0, -1)
         document.getElementById("tela").innerHTML = backspace
 
         // Verifica se o caracter a ser apagado é a regra de calculo
-        if (num1 != null && reg != null && num2 == null) {
-            regra = null
-            calculo = num1
+        if (num1 != null && reg != null && calculo == '') {
+            reg = null
+            calculo = backspace
             num1 = null
         }
 
-        if (num1 != null && reg == null) {
-            num1 = parseFloat(backspace)
+        if (num1 != null && reg != null && calculo != '') {
+            calculo = calculo.slice(0, -1)
+        }
+
+        if (num1 == null) {
+            calculo = backspace
+        }
+
+        if (virgula == true && Number.isInteger(parseFloat(calculo)) == true) {
+            calculo = calculo * 1
+            virgula = false
+
+            if (num1 == null) {
+                document.getElementById("tela").innerHTML = calculo
+            }
+            
+            if (num1 != null && reg != null) {
+                document.getElementById("tela").innerHTML = num1 + reg + calculo
+            }
         }
 
     }
@@ -186,5 +202,6 @@ function limpar() {
     num2 = null
     reg = null
     regN = null
+    virgula = false
     return true
 }
