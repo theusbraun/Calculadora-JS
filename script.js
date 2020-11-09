@@ -84,6 +84,7 @@ function igual(resultado) {
     // CASO NÃO SEJA REALIZADO MAIS NENHUMA OPERAÇÃO PODE SER DADO O VALOR IGUAL PARA GERAR O RESULTADO, ALOCA O VALOR DO SEGUNDO NUMERO.
     if (resultado == '=' && num1 != null) {
         num2 = parseFloat(calculo)
+        virgula = false
     }
     // REGRA DA RAIZ QUADRADA É SEPARADA POIS SÓ TEM UM NUMERO
     if (resultado == '√') {
