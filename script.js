@@ -26,7 +26,7 @@ function numero(codigo) {
 }
 
 function acao(regra) {
-    if (document.getElementById("tela").innerHTML == 'Escreva um calculo correto') {
+    if (document.getElementById("tela").innerHTML == 'Escolha primeiro um numero' || document.getElementById("tela").innerHTML == 'Escreva um calculo valido') {
         document.getElementById("tela").innerHTML = ''
     }
 
